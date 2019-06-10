@@ -13,7 +13,7 @@ class App extends Component {
     searchTerm: "",
     selectedShow: "",
     episodes: [],
-    filterByRating: "",
+    filterByRating: 0,
   }
 
   componentDidMount = () => {
@@ -24,12 +24,12 @@ class App extends Component {
     window.scrollTo(0, 0)
   }
 
-  handleSearch (e){
+  handleSearch = (e) => {
     this.setState({ searchTerm: e.target.value.toLowerCase() })
   }
 
   handleFilter = (e) => {
-    e.target.value === "No Filter" ? this.setState({ filterRating:"" }) : this.setState({ filterRating: e.target.value})
+    e.target.value === "No Filter" ? this.setState({ filterByRating: 0 }) : this.setState({ filterByRating: +e.target.value})
   }
 
   selectShow = (show) => {
